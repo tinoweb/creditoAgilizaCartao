@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from seucreditohoje.site/direto/ups/vega/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 May 2025 19:50:12 GMT -->
+<head>
+    <script>
+        window.pixelId = "68152876fa7e8334b3647c73";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "../../../../cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+      </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionamento</title>
+</head>
+
+<body>
+    <script>
+        function getVisitCount() {
+            return parseInt(localStorage.getItem('visitCount')) || 0;
+        }
+
+        function saveInitialUtmParams() {
+            if (!localStorage.getItem('utmParams')) {
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.toString()) {
+                    localStorage.setItem('utmParams', '?' + urlParams.toString());
+                } else {
+                    localStorage.setItem('utmParams', '');
+                }
+            }
+        }
+
+        function redirectToPage() {
+            var visitCount = getVisitCount();
+            localStorage.setItem('visitCount', visitCount + 1);
+
+            var utmParams = localStorage.getItem('utmParams') || '';
+
+            var pages = [
+                '../up1/index.html', '../up2/index-2.html', '../up3/index-2.html', 
+                '../up4/index-2.html', '../up5/index-2.html', '../up6/index-2.html', 
+                '../up7/index-2.html', '../up8/index-2.html', '../up9/index-2.html', '../up10/index-2.html', '../up11/index-2.html', '../up12/index-2.html'
+            ];
+
+            var nextPage = pages[visitCount % pages.length];
+            
+            window.location.href = nextPage + (utmParams && !nextPage.includes('?') ? utmParams : utmParams.replace('?', '&'));
+
+        }
+
+        saveInitialUtmParams();
+        redirectToPage();
+    </script>
+</body>
+
+
+<!-- Mirrored from seucreditohoje.site/direto/ups/vega/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 May 2025 19:50:16 GMT -->
+</html>
