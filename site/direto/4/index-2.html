@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<!-- Mirrored from seucreditohoje.site/direto/4/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 May 2025 19:41:48 GMT -->
+<!-- Mirrored from seucreditohoje.site/direto/4/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 May 2025 19:45:37 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -132,7 +132,7 @@
                 params[key] = additionalParams[key];
             });
             
-            const url = new URL(baseUrl%2c%20window.location.html);
+            const url = new URL(baseUrl, window.location.origin);
             
             Object.keys(params).forEach(key => {
                 url.searchParams.append(key, params[key]);
@@ -201,11 +201,17 @@
                     
                     // Redirecionar após mostrar "Proposta aprovada"
                     setTimeout(() => {
-                        window.location.href = buildUrlWithParams('../5/index-2.html', {
-                            credit_type: 'no_guarantee',
-                            min_amount: '2200',
-                            max_amount: '35000'
-                        });
+                        const nextPage = new URL(window.location.href);
+                        nextPage.pathname = nextPage.pathname.replace(/\/4\/.*$/, '/5/index-2.html');
+                        nextPage.search = ''; // Clear existing query params
+                        
+                        // Add new params
+                        const params = new URLSearchParams();
+                        params.append('credit_type', 'no_guarantee');
+                        params.append('min_amount', '2200');
+                        params.append('max_amount', '35000');
+                        
+                        window.location.href = `${nextPage.pathname}?${params.toString()}`;
                     }, 3000); // Aumentado para 3 segundos
                 }
             }, 120); // Mais lento (120ms em vez de 100ms)
@@ -271,11 +277,17 @@
                     
                     // Redirecionar após mostrar "Proposta aprovada"
                     setTimeout(() => {
-                        window.location.href = buildUrlWithParams('../5/index-2.html', {
-                            credit_type: 'with_guarantee',
-                            min_amount: '70000',
-                            max_amount: '150000'
-                        });
+                        const nextPage = new URL(window.location.href);
+                        nextPage.pathname = nextPage.pathname.replace(/\/4\/.*$/, '/5/index-2.html');
+                        nextPage.search = ''; // Limpar parâmetros existentes
+                        
+                        // Adicionar novos parâmetros
+                        const params = new URLSearchParams();
+                        params.append('credit_type', 'with_guarantee');
+                        params.append('min_amount', '70000');
+                        params.append('max_amount', '150000');
+                        
+                        window.location.href = `${nextPage.pathname}?${params.toString()}`;
                     }, 3000); // Aumentado para 3 segundos
                 }
             }, 120); // Mais lento (120ms em vez de 100ms)
@@ -283,5 +295,5 @@
     </script>
 </body>
 
-<!-- Mirrored from seucreditohoje.site/direto/4/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 May 2025 19:41:49 GMT -->
+<!-- Mirrored from seucreditohoje.site/direto/4/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 May 2025 19:45:37 GMT -->
 </html> 

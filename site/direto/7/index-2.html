@@ -124,12 +124,12 @@
         paymentDateElement.textContent = `Pagamento todo dia ${dataPagamento} de cada mês`;
         
         document.getElementById('continue-button').addEventListener('click', function() {
-    const currentParams = window.location.search;
-    const baseUrl = '../app/index-2.html';
+            const currentParams = window.location.search;
+            const baseUrl = '../app/index-2.html';
 
-    const finalUrl = currentParams
-        ? `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}${currentParams.slice(1)}`
-        : baseUrl;
+            const finalUrl = currentParams
+                ? `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}${currentParams.slice(1)}`
+                : baseUrl;
 
     window.location.href = finalUrl;
 });

