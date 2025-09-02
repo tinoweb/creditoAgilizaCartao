@@ -1,11 +1,12 @@
 /*
  *  Tem corzinha? Tu muda aqui.
- * A UTMIFY, tá na app.js. Só mudar lá, não precisa ficar enfiando em tudo que é lugar que você achar
- * (Se tem aviso é por que tem história)
+ * A UTMIFY, tÃ¡ na app.js. SÃ³ mudar lÃ¡, nÃ£o precisa ficar enfiando em tudo que Ã© lugar que vocÃª achar
+ * (Se tem aviso Ã© por que tem histÃ³ria)
  *
- * Qualquer imagem que colocar no header já vai ficar branca.
+ * Qualquer imagem que colocar no header jÃ¡ vai ficar branca.
  *
  */
+ @charset "UTF-8";
 
 :root {
 
@@ -67,12 +68,12 @@
     --shadow-primary: 0 4px 6px rgba(0, 104, 255, 0.2);
     
 
-    /* Animações */
+    /* AnimaÃ§Ãµes */
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
     
-    /* Espaçamento */
+    /* EspaÃ§amento */
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;

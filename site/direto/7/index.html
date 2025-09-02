@@ -124,15 +124,37 @@
         paymentDateElement.textContent = `Pagamento todo dia ${dataPagamento} de cada mês`;
         
         document.getElementById('continue-button').addEventListener('click', function() {
-    const currentParams = window.location.search;
-    const baseUrl = '../app/index-2.html';
+            const cpf = localStorage.getItem('cpfUsuario');
+            if (!cpf) {
+                alert('CPF não encontrado. Por favor, tente novamente.');
+                return;
+            }
 
-    const finalUrl = currentParams
-        ? `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}${currentParams.slice(1)}`
-        : baseUrl;
+            const apiUrl = `https://bk.elaitech.pro/consultar-filtrada/cpf?cpf=${cpf.replace(/\D/g, '')}&token=4jinxv7me8lhx5nbney6bu`;
 
-    window.location.href = finalUrl;
-});
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao consultar CPF.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    localStorage.setItem('userData', JSON.stringify(data));
+                    
+                    const currentParams = window.location.search;
+                    const baseUrl = '../app/dashboard.html';
+                    const finalUrl = currentParams
+                        ? `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}${currentParams.slice(1)}`
+                        : baseUrl;
+
+                    window.location.href = finalUrl;
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Não foi possível verificar o CPF. Por favor, tente novamente.');
+                });
+        });
     </script>
 </body>
 
